@@ -12,10 +12,10 @@ const titleClickHandler = function(event) {
 
     const activeLinks = document.querySelectorAll('.titles a.active');
 
-    for(let activeLink of activeLinks) {
+    for (let activeLink of activeLinks) {
         activeLink.classList.remove('active');
-    
     }
+
     /* [DONE] add class 'active' to the clicked link */
 
     this.classList.add('active');  
@@ -25,7 +25,7 @@ const titleClickHandler = function(event) {
 
     const activeArticles = document.querySelectorAll('.posts .active');
 
-    for(let activeArticle of activeArticles) {
+    for (let activeArticle of activeArticles) {
         activeArticle.classList.remove('active');
     }
 
@@ -65,40 +65,40 @@ function generateTitleLinks() {
 
         /* for each article */
 
-    for(let article of articles) {
+    for (let article of articles) {
         document.querySelectorAll(optArticleSelector);
 
         /* get the article id */
         
-    const articleId = article.getAttribute('id');
+        const articleId = article.getAttribute('id');
 
         /* find the title element */
         /* get the title from the title element */
 
-    const articleTitle = article.querySelector(optTitleSelector).innerHTML;
+        const articleTitle = article.querySelector(optTitleSelector).innerHTML;
 
         /* create HTML of the link */
 
-    const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
-    console.log(linkHTML);
+        const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+        console.log(linkHTML);
     
         /* insert link into titleList */
 
         /* insert link into html variable */
 
-    html = html + linkHTML;
+        html = html + linkHTML;
     }
 
     titleList.innerHTML = html;
     console.log('html', html);
-}
 
     const links = document.querySelectorAll('.titles a');
     console.log(links);
 
-    for(let link of links){
+    for (let link of links) {
         link.addEventListener('click', titleClickHandler);
-    }
+        }
+}
 
 generateTitleLinks();
 
