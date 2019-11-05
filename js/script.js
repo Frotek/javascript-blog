@@ -6,7 +6,7 @@
     event.preventDefault();
     const clickedElement = this;
     console.log('Link was clicked!');
-    console.log(event);
+    //console.log(event);
       
     
     /* [DONE] remove class 'active' from all article links */
@@ -20,7 +20,7 @@
     /* [DONE] add class 'active' to the clicked link */
     
     this.classList.add('active');  
-    console.log('clickedElement:', clickedElement);
+    //console.log('clickedElement:', clickedElement);
     
     /* [DONE] remove class 'active' from all articles */
     
@@ -33,12 +33,12 @@
     /* [DONE] get 'href' attribute from the clicked link */
     
     const articleSelector = clickedElement.getAttribute('href');
-    console.log(articleSelector);
+    //console.log(articleSelector);
     
     /* [DONE] find the correct article using the selector (value of 'href' attribute) */
     
     const targetArticle = document.querySelector(articleSelector);
-    console.log(targetArticle);
+    //console.log(targetArticle);
     
     /* [DONE] add class 'active' to the correct article */
     
@@ -54,7 +54,7 @@
     
   function generateTitleLinks(customSelector = '') {
     const titleList = document.querySelector(optTitleListSelector);
-    console.log(titleList);
+    //console.log(titleList);
     
     /* [DONE] remove contents of titleList */
     
@@ -84,7 +84,7 @@
       /* [DONE] create HTML of the link */
     
       const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
-      console.log(linkHTML);
+      //console.log(linkHTML);
         
       /* insert link into titleList */
     
@@ -94,10 +94,10 @@
     }
     
     titleList.innerHTML = html;
-    console.log('html', html);
+    //console.log('html', html);
     
     const links = document.querySelectorAll('.titles a');
-    console.log(links);
+    //console.log(links);
     
     for (let link of links) {
       link.addEventListener('click', titleClickHandler);
@@ -143,12 +143,12 @@
         /* generate HTML of the link */
       
         const linkHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>' + ' ';
-        console.log(linkHTML);
+        //console.log(linkHTML);
 
         /* add generated code to html variable */
 
         html = html + linkHTML;
-        console.log(html);
+        //console.log(html);
 
         /* END LOOP: for each tag */
       }
@@ -170,22 +170,22 @@
     /* [DONE] make new constant named "clickedElement" and give it the value of "this" */
 
     const clickedElement = this;
-    console.log(this);
+    //console.log(this);
   
     /* make a new constant "href" and read the attribute "href" of the clicked element */
 
     const href = clickedElement.getAttribute('href');
-    console.log(href);
+    //console.log(href);
   
     /* make a new constant "tag" and extract tag from the "href" constant */
 
     const tag = href.replace('#tag-', '');
-    console.log(tag);
+    //console.log(tag);
   
     /* find all tag links with class active */
 
     const activeTags = document.querySelectorAll('a.active[href^="#tag-"]');
-    console.log(activeTags);
+    //console.log(activeTags);
 
     /* [DONE] START LOOP: for each active tag link */
     for (let activeTag of activeTags) {
@@ -195,14 +195,14 @@
     }
     /* [DONE] find all tag links with "href" attribute equal to the "href" constant */
     const tagLinks = document.querySelectorAll('a[href^="#tag-' + tag + '"]');
-    console.log(tagLinks);
+    //console.log(tagLinks);
   
     /* [DONE] START LOOP: for each found tag link */
     for (let tagLink of tagLinks) {
   
       /* [DONE] add class active */
       tagLink.classList.add('active');
-      console.log('Oto tagLink:', tagLink);
+      //console.log('Oto tagLink:', tagLink);
   
     /* END LOOP: for each found tag link */
     }
