@@ -51,6 +51,7 @@
   const optArticleTagsSelector = '.post-tags .list';
   const optArticleTagSelector = '.post-tags a';
   const optTagsListSelector = '.list.tags a';
+  const optArticleAuthorSelector = '.post-author';
     
   function generateTitleLinks(customSelector = '') {
     const titleList = document.querySelector(optTitleListSelector);
@@ -118,7 +119,7 @@
 
       /* find tags wrapper */
       const tagList = article.querySelector(optArticleTagsSelector);
-      console.log(tagList);
+      //console.log(tagList);
         
       /* make html variable with empty string */
 
@@ -127,18 +128,18 @@
       /* get tags from data-tags attribute */
 
       const articleTags = article.getAttribute('data-tags');
-      console.log(articleTags);
+      //console.log(articleTags);
 
       /* split tags into array */
 
       const articleTagsArray = articleTags.split(' ');
-      console.log(articleTagsArray);
+      //console.log(articleTagsArray);
 
       
       /* START LOOP: for each tag */
 
       for (let tag of articleTagsArray) {
-        console.log(tag);
+        //console.log(tag);
             
         /* generate HTML of the link */
       
@@ -225,5 +226,35 @@
   }
   
   addClickListenersToTags();
+
+  function generateAuthors() {
+
+    /* find authors */
+    const authors = document.querySelectorAll(optArticleSelector);
+    //console.log('to autorzy:', authors);
+
+    /* [DONE] START LOOP: for each author */
+    for (let author of authors) {
+      /* find tags wrapper */
+      const authorList = author.querySelectorAll(optArticleAuthorSelector);
+      console.log(authorList);
+
+      /* make html variable with empty string */
+      let html = ' ';
+
+      /* get tags from data-author attribute */
+      const articleAuthor = author.getAttribute('data-author');
+      //console.log(articleAuthor);
+
+      /* generate HTML of the link */
+      const linkHTML = '<li><a href="#author-' + articleAuthor + '">' + articleAuthor + '</a></li>' + ' ';
+      //console.log(linkHTML);
+      
+      html = html + linkHTML;
+      authorList.innerHTML = html;
+      console.log(html)
+    }
+  } 
+  generateAuthors();
 
 }
