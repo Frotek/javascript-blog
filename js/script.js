@@ -114,11 +114,11 @@
 
   generateTitleLinks();
 
-  function generateTags(customSelector = '') {
+  function generateTags() {
 
     /* find all articles */
 
-    const articles = document.querySelectorAll(optArticleSelector + customSelector);
+    const articles = document.querySelectorAll(optArticleSelector);
 
     /* START LOOP: for every article: */
 
@@ -223,7 +223,7 @@
     for (let tag of tagLinks) {
 
       /* [DONE] add tagClickHandler as event listener for that link */
-      tag.addEventListener('Link was clicked', tagClickHandler);
+      tag.addEventListener('click', tagClickHandler);
       /* END LOOP: for each link */
     }
   }
@@ -259,17 +259,18 @@
   }
 
   generateAuthors();
+
   /* Delete author duplicates from array */
-  function remove_duplicates(arr) {
+  function removeDuplicates(arr) {
     var obj = {};
-    var ret_arr = [];
+    var retArr = [];
     for (var i = 0; i < arr.length; i++) {
         obj[arr[i]] = true;
     }
     for (var key in obj) {
-        ret_arr.push(key);
+        retArr.push(key);
     }
-    return ret_arr;
+    return retArr;
 }
 
   function getAllAuthors() {
@@ -280,7 +281,7 @@
       const articleAuthors = article.getAttribute('data-author');
       sideBarData.authors.push(articleAuthors);
     }
-    sideBarData.authors = remove_duplicates(sideBarData.authors);
+    sideBarData.authors = removeDuplicates(sideBarData.authors);
 
    // console.log(sideBarData.authors);
   }
@@ -369,9 +370,9 @@
     let html = ``;
 
     for(let author of sideBarData.authors){
-      let _author = `<li> <a href="#author-${author}" onclick="authorClickHandler(event)">${author}</a></li>` ;
+      let authorHTML = `<li><a href="#author-${author}" onclick="authorClickHandler(event)">${author}</a></li>` ;
       
-      html += _author;
+      html += authorHTML;
     }
 
     refs.listOfAuthorsRef.innerHTML = html;
