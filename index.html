@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Blog JS</title>
     <link rel="stylesheet" href="css/style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
   </head>
   <body>
     <div class="blog">
@@ -171,7 +172,7 @@
                   Vestibulum luctus, quam eu tristique ornare, lorem nibh
                   sodales enim, vitae tempor dolor ante vitae tortor.
                 </p>
-
+          <5-enterow></5-enterow>
                 <p>
                   Duis venenatis metus quis luctus lobortis. In porttitor ipsum
                   eget ligula aliquam ornare. Cras malesuada urna id volutpat
@@ -380,6 +381,29 @@
         </main>
       </div>
     </div>
+
+    <script id="template-article-link" type="text/x-handlebars-template">
+      <li><a href="#{{ id }}" onclick="{{func}}"><span>{{ title }}</span></a></li>
+    </script>
+
+    <script id="template-tag-cloud-link" type="text/x-handlebars-template">
+      {{#each tags}}
+      <li><a href="#tag-{{ tag }}" class="{{ className }}" >{{ tag }} ({{ count }})</a></li>
+      {{/each}}
+    </script>
+
+    <script id="template-tag-article-link" type="text/x-handlebars-template">
+      {{#each tags}}
+      <li><a href="#tag-{{ tag }}" class="{{ className }}" >{{ tag }}</a></li>
+      {{/each}}
+    </script>
+
+    <script id="template-authors-link" type="text/x-handlebars-template">
+      {{#each authors}}
+      <li><a href="#author-{{ author }}">{{ author }}</a></li>
+      {{/each}}
+    </script>
+
     <script src="js/script.js"></script>
   </body>
 </html>
